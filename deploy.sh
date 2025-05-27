@@ -14,7 +14,7 @@ set -e
 
 cp -rf dist/* .
 
-cat index.html | sed -e "s/\/assets/\/euroweighing\/assets/g" > index.html.new
+cat index.html | sed -e "s/\/assets/\/euroweighing\/assets/g" | sed "s/\/favicon.ico/\/euroweighing\/favicon.ico/g"> index.html.new
 mv index.html.new index.html
 
 git add index.html assets favicon.ico
