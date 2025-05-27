@@ -230,7 +230,7 @@ table div {
 
 input {
   font-size: 1.5em;
-  width: 250px;
+  width: 100%;
   background-color: rgb(246, 255, 152);
   border: 0;
   border-radius: 20px;
