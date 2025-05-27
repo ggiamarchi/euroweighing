@@ -1,86 +1,88 @@
 <script setup></script>
 
 <template>
-  <table width="100%">
-    <thead>
-      <tr>
-        <th><div>Pièce</div></th>
-        <th><div>Poids (g)</div></th>
-        <th><div>Nombre</div></th>
-        <th><div>Montant</div></th>
-      </tr>
-      <tr>
-        <th></th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td class="value">0,10 €</td>
-        <td>
-          <input type="text" @input="update10" />
-        </td>
-        <td class="value">{{ coinCount10 }}</td>
-        <td class="value">{{ amount10 }} €</td>
-      </tr>
-      <tr>
-        <td></td>
-        <td colspan="3" class="error">{{ message10 }}</td>
-      </tr>
-      <tr>
-        <td class="value">0,20 €</td>
-        <td>
-          <input type="text" @input="update20" />
-        </td>
-        <td class="value">{{ coinCount20 }}</td>
-        <td class="value">{{ amount20 }} €</td>
-      </tr>
-      <tr>
-        <td></td>
-        <td colspan="3" class="error">{{ message20 }}</td>
-      </tr>
-      <tr>
-        <td class="value">0,50 €</td>
-        <td>
-          <input type="text" @input="update50" />
-        </td>
-        <td class="value">{{ coinCount50 }}</td>
-        <td class="value">{{ amount50 }} €</td>
-      </tr>
-      <tr>
-        <td></td>
-        <td colspan="3" class="error">{{ message50 }}</td>
-      </tr>
-      <tr>
-        <td class="value">1 €</td>
-        <td>
-          <input type="text" @input="update1" />
-        </td>
-        <td class="value">{{ coinCount1 }}</td>
-        <td class="value">{{ amount1 }} €</td>
-      </tr>
-      <tr>
-        <td></td>
-        <td colspan="3" class="error">{{ message1 }}</td>
-      </tr>
-      <tr>
-        <td class="value">2 €</td>
-        <td>
-          <input type="text" @input="update2" />
-        </td>
-        <td class="value">{{ coinCount2 }}</td>
-        <td class="value">{{ amount2 }} €</td>
-      </tr>
-      <tr>
-        <td></td>
-        <td colspan="3" class="error">{{ message2 }}</td>
-      </tr>
-      <tr>
-        <td></td>
-        <td colspan="2" class="total total-left">Montant total</td>
-        <td class="numeric total total-right">{{ totalAmount }} €</td>
-      </tr>
-    </tbody>
-  </table>
+  <div style="padding-top: 20px; padding-left: 50px; padding-right: 50px">
+    <table width="100%">
+      <thead>
+        <tr>
+          <th><div>Pièce</div></th>
+          <th><div>Poids (g)</div></th>
+          <th><div>Nombre</div></th>
+          <th><div>Montant</div></th>
+        </tr>
+        <tr>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="value">0,10 €</td>
+          <td>
+            <input type="text" @input="update10" />
+          </td>
+          <td class="value">{{ coinCount10 }}</td>
+          <td class="value">{{ amount10 }} €</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td colspan="3" class="error">{{ message10 }}</td>
+        </tr>
+        <tr>
+          <td class="value">0,20 €</td>
+          <td>
+            <input type="text" @input="update20" />
+          </td>
+          <td class="value">{{ coinCount20 }}</td>
+          <td class="value">{{ amount20 }} €</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td colspan="3" class="error">{{ message20 }}</td>
+        </tr>
+        <tr>
+          <td class="value">0,50 €</td>
+          <td>
+            <input type="text" @input="update50" />
+          </td>
+          <td class="value">{{ coinCount50 }}</td>
+          <td class="value">{{ amount50 }} €</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td colspan="3" class="error">{{ message50 }}</td>
+        </tr>
+        <tr>
+          <td class="value">1 €</td>
+          <td>
+            <input type="text" @input="update1" />
+          </td>
+          <td class="value">{{ coinCount1 }}</td>
+          <td class="value">{{ amount1 }} €</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td colspan="3" class="error">{{ message1 }}</td>
+        </tr>
+        <tr>
+          <td class="value">2 €</td>
+          <td>
+            <input type="text" @input="update2" />
+          </td>
+          <td class="value">{{ coinCount2 }}</td>
+          <td class="value">{{ amount2 }} €</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td colspan="3" class="error">{{ message2 }}</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td colspan="2" class="total total-left">Montant total</td>
+          <td class="numeric total total-right">{{ totalAmount }} €</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </template>
 
 <script>
@@ -205,7 +207,6 @@ export default {
 table {
   font-size: 2em;
   margin-top: 10px;
-  margin-left: 10px;
 }
 
 table th {
