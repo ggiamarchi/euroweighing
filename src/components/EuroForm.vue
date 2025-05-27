@@ -18,7 +18,7 @@
         <tr>
           <td class="value">0,10 €</td>
           <td>
-            <input type="text" @input="update10" />
+            <input type="text" inputmode="numeric" pattern="\d*" @input="update10" />
           </td>
           <td class="value">{{ coinCount10 }}</td>
           <td class="value">{{ amount10 }} €</td>
@@ -30,7 +30,7 @@
         <tr>
           <td class="value">0,20 €</td>
           <td>
-            <input type="text" @input="update20" />
+            <input type="text" inputmode="numeric" pattern="\d*" @input="update20" />
           </td>
           <td class="value">{{ coinCount20 }}</td>
           <td class="value">{{ amount20 }} €</td>
@@ -42,7 +42,7 @@
         <tr>
           <td class="value">0,50 €</td>
           <td>
-            <input type="text" @input="update50" />
+            <input type="text" inputmode="numeric" pattern="\d*" @input="update50" />
           </td>
           <td class="value">{{ coinCount50 }}</td>
           <td class="value">{{ amount50 }} €</td>
@@ -54,7 +54,7 @@
         <tr>
           <td class="value">1 €</td>
           <td>
-            <input type="text" @input="update1" />
+            <input type="text" inputmode="numeric" pattern="\d*" @input="update1" />
           </td>
           <td class="value">{{ coinCount1 }}</td>
           <td class="value">{{ amount1 }} €</td>
@@ -66,7 +66,7 @@
         <tr>
           <td class="value">2 €</td>
           <td>
-            <input type="text" @input="update2" />
+            <input type="text" inputmode="numeric" pattern="\d*" @input="update2" />
           </td>
           <td class="value">{{ coinCount2 }}</td>
           <td class="value">{{ amount2 }} €</td>
