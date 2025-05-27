@@ -1,7 +1,7 @@
 <script setup></script>
 
 <template>
-  <table width="70%">
+  <table width="100%">
     <thead>
       <tr>
         <th><div>Pièce</div></th>
