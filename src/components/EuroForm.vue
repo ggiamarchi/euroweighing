@@ -17,8 +17,16 @@
       <tbody>
         <tr>
           <td class="value">0,10 €</td>
-          <td>
-            <input type="text" inputmode="numeric" pattern="\d*" @input="update10" />
+          <td class="button-container">
+            <input
+              class="input-weight"
+              type="text"
+              inputmode="numeric"
+              pattern="\d*"
+              v-model="weightRaw10"
+              @input="update10"
+            />
+            <input class="clear-button" type="button" value="X" @click="erase10" />
           </td>
           <td class="value">{{ coinCount10 }}</td>
           <td class="value">{{ amount10 }} €</td>
@@ -29,8 +37,16 @@
         </tr>
         <tr>
           <td class="value">0,20 €</td>
-          <td>
-            <input type="text" inputmode="numeric" pattern="\d*" @input="update20" />
+          <td class="button-container">
+            <input
+              class="input-weight"
+              type="text"
+              inputmode="numeric"
+              pattern="\d*"
+              v-model="weightRaw20"
+              @input="update20"
+            />
+            <input class="clear-button" type="button" value="X" @click="erase20" />
           </td>
           <td class="value">{{ coinCount20 }}</td>
           <td class="value">{{ amount20 }} €</td>
@@ -41,8 +57,16 @@
         </tr>
         <tr>
           <td class="value">0,50 €</td>
-          <td>
-            <input type="text" inputmode="numeric" pattern="\d*" @input="update50" />
+          <td class="button-container">
+            <input
+              class="input-weight"
+              type="text"
+              inputmode="numeric"
+              pattern="\d*"
+              v-model="weightRaw50"
+              @input="update50"
+            />
+            <input class="clear-button" type="button" value="X" @click="erase50" />
           </td>
           <td class="value">{{ coinCount50 }}</td>
           <td class="value">{{ amount50 }} €</td>
@@ -53,8 +77,16 @@
         </tr>
         <tr>
           <td class="value">1 €</td>
-          <td>
-            <input type="text" inputmode="numeric" pattern="\d*" @input="update1" />
+          <td class="button-container">
+            <input
+              class="input-weight"
+              type="text"
+              inputmode="numeric"
+              pattern="\d*"
+              v-model="weightRaw1"
+              @input="update1"
+            />
+            <input class="clear-button" type="button" value="X" @click="erase1" />
           </td>
           <td class="value">{{ coinCount1 }}</td>
           <td class="value">{{ amount1 }} €</td>
@@ -65,8 +97,16 @@
         </tr>
         <tr>
           <td class="value">2 €</td>
-          <td>
-            <input type="text" inputmode="numeric" pattern="\d*" @input="update2" />
+          <td class="button-container">
+            <input
+              class="input-weight"
+              type="text"
+              inputmode="numeric"
+              pattern="\d*"
+              v-model="weightRaw2"
+              @input="update2"
+            />
+            <input class="clear-button" type="button" value="X" @click="erase2" />
           </td>
           <td class="value">{{ coinCount2 }}</td>
           <td class="value">{{ amount2 }} €</td>
@@ -166,6 +206,11 @@ export default {
   data() {
     return {
       totalAmount: 0,
+      weightRaw10: '',
+      weightRaw20: '',
+      weightRaw50: '',
+      weightRaw1: '',
+      weightRaw2: '',
       amount10: 0,
       amount20: 0,
       amount50: 0,
@@ -184,20 +229,88 @@ export default {
     }
   },
   methods: {
-    update10(event) {
-      updateTotal(this, 0.1, 'coinCount10', 'amount10', 'message10', event.target.value)
+    update10() {
+      updateTotal(this, 0.1, 'coinCount10', 'amount10', 'message10', this.weightRaw10)
     },
-    update20(event) {
-      updateTotal(this, 0.2, 'coinCount20', 'amount20', 'message20', event.target.value)
+    update20() {
+      updateTotal(this, 0.2, 'coinCount20', 'amount20', 'message20', this.weightRaw20)
     },
-    update50(event) {
-      updateTotal(this, 0.5, 'coinCount50', 'amount50', 'message50', event.target.value)
+    update50() {
+      updateTotal(this, 0.5, 'coinCount50', 'amount50', 'message50', this.weightRaw50)
     },
-    update1(event) {
-      updateTotal(this, 1, 'coinCount1', 'amount1', 'message1', event.target.value)
+    update1() {
+      updateTotal(this, 1, 'coinCount1', 'amount1', 'message1', this.weightRaw1)
     },
-    update2(event) {
-      updateTotal(this, 2, 'coinCount2', 'amount2', 'message2', event.target.value)
+    update2() {
+      updateTotal(this, 2, 'coinCount2', 'amount2', 'message2', this.weightRaw2)
+    },
+    erase10() {
+      this.weightRaw10 = ''
+      this.message10 = ''
+      this.coinCount10 = 0
+      this.amount10 = 0
+      this.totalAmount = roundToTwoDecimals(
+        this.amount20 + this.amount50 + this.amount1 + this.amount2,
+      )
+    },
+    erase20() {
+      this.weightRaw20 = ''
+      this.message20 = ''
+      this.coinCount20 = 0
+      this.amount20 = 0
+      this.totalAmount = roundToTwoDecimals(
+        this.amount10 + this.amount50 + this.amount1 + this.amount2,
+      )
+    },
+    erase50() {
+      this.weightRaw50 = ''
+      this.message50 = ''
+      this.coinCount50 = 0
+      this.amount50 = 0
+      this.totalAmount = roundToTwoDecimals(
+        this.amount10 + this.amount20 + this.amount1 + this.amount2,
+      )
+    },
+    erase1() {
+      this.weightRaw1 = ''
+      this.message1 = ''
+      this.coinCount1 = 0
+      this.amount1 = 0
+      this.totalAmount = roundToTwoDecimals(
+        this.amount10 + this.amount20 + this.amount50 + this.amount2,
+      )
+    },
+    erase2() {
+      this.weightRaw2 = ''
+      this.message2 = ''
+      this.coinCount2 = 0
+      this.amount2 = 0
+      this.totalAmount = roundToTwoDecimals(
+        this.amount10 + this.amount20 + this.amount50 + this.amount1,
+      )
+    },
+    eraseAll() {
+      this.weightRaw10 = ''
+      this.weightRaw20 = ''
+      this.weightRaw50 = ''
+      this.weightRaw1 = ''
+      this.weightRaw2 = ''
+      this.message10 = ''
+      this.message20 = ''
+      this.message50 = ''
+      this.message1 = ''
+      this.message2 = ''
+      this.coinCount10 = 0
+      this.coinCount20 = 0
+      this.coinCount50 = 0
+      this.coinCount1 = 0
+      this.coinCount2 = 0
+      this.amount10 = 0
+      this.amount20 = 0
+      this.amount50 = 0
+      this.amount1 = 0
+      this.amount2 = 0
+      this.totalAmount = 0
     },
   },
 }
@@ -229,14 +342,47 @@ table div {
   background-color: #999;
 }
 
-input {
+.input-weight {
   font-size: 1.5em;
-  width: 100%;
+  /* width: 100%; */
   background-color: rgb(246, 255, 152);
   border: 0;
-  border-radius: 20px;
+  border-radius: 20px 0 0 20px;
+
+  /* border-radius: 20px; */
   padding-left: 10px;
   padding-right: 10px;
+  flex: 1; /* occupe tout l'espace restant */
+}
+
+.button-container {
+  display: flex;
+  width: 100%; /* occupe toute la largeur du parent */
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.fixed-width {
+  width: 150px; /* largeur fixe */
+}
+
+.flexible-width {
+  flex: 1; /* occupe tout l'espace restant */
+}
+
+.clear-button {
+  cursor: pointer;
+  color: white;
+  font-weight: bold;
+  font-family: monospace;
+  text-align: center;
+  font-size: 1.5em;
+  background-color: rgb(255, 112, 112);
+  border: 0;
+  border-radius: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 0 20px 20px 0;
 }
 
 .value {
@@ -265,5 +411,6 @@ input {
   color: red;
   height: 40px;
   font-size: 0.6em;
+  padding-left: 10px;
 }
 </style>
